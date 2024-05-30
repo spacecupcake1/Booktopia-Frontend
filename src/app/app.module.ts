@@ -14,8 +14,6 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Page1Component } from './pages/page1/page1.component';
-import { Page2Component } from './pages/page2/page2.component';
-import { Page3Component } from './pages/page3/page3.component';
 import {AuthConfig, OAuthModule, OAuthStorage} from 'angular-oauth2-oidc';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { HttpXSRFInterceptor } from './interceptor/http.csrf.interceptor';
@@ -31,6 +29,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthorformComponent } from './pages/authorform/authorform.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { AwardtableComponent } from './pages/awardtable/awardtable.component';
+import { AwardformComponent } from './pages/awardform/awardform.component';
 
 
 
@@ -59,8 +59,6 @@ export function storageFactory(): OAuthStorage {
     AppComponent,
     DatalistComponent,
     Page1Component,
-    Page2Component,
-    Page3Component,
     IsInRoleDirective,
     IsInRolesDirective,
     ChildComponent,
@@ -68,6 +66,8 @@ export function storageFactory(): OAuthStorage {
     LoginpageComponent,
     AuthortableComponent,
     AuthorformComponent,
+    AwardtableComponent,
+    AwardformComponent,
   ],
   imports: [
     BrowserModule,

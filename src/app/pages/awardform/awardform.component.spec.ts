@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Page2Component } from './page2.component';
+import { AwardformComponent } from './awardform.component';
 
-describe('Page2Component', () => {
-  let component: Page2Component;
-  let fixture: ComponentFixture<Page2Component>;
+describe('AwardformComponent', () => {
+  let component: AwardformComponent;
+  let fixture: ComponentFixture<AwardformComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [Page2Component]
+      declarations: [AwardformComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(Page2Component);
+    fixture = TestBed.createComponent(AwardformComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
