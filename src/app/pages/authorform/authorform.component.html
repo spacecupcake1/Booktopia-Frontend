@@ -1,1 +1,32 @@
-<p>authorform works!</p>
+<div style="padding-top: 20px;">
+    <form
+        (ngSubmit)="save(authorForm.value)"
+        [formGroup]="authorForm!"
+        class="app-form"
+    >
+        <mat-form-field>
+            <mat-label>Firstname</mat-label>
+            <input matInput required maxlength="255" formControlName="firstname"/>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Lastname</mat-label>
+            <input matInput required maxlength="255" formControlName="lastname"/>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Birthdate</mat-label>
+            <input matInput formControlName="bithdate"/>
+        </mat-form-field>
+
+        <button
+            [disabled]="!authorForm.valid"
+            color="primary"
+            mat-raised-button
+            style="width: 200px;"
+        >
+            Save
+        </button>
+
+    </form>
+</div>

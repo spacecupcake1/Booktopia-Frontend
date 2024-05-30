@@ -1,11 +1,11 @@
 <div>
     <div>
       <mat-toolbar *appIsInRole="'admin'">
-        <!-- <span>
+        <span>
           <button (click)="add()" *appIsInRole="'admin'" color="primary" mat-button style="color: white">
             <mat-icon>add</mat-icon>
           </button>
-        </span> -->
+        </span>
       </mat-toolbar>
     </div>
     <table  mat-table [dataSource]="authordata" class="mat-elevation-z8 author-table">
