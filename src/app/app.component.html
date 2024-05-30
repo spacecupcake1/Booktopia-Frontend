@@ -5,7 +5,7 @@
 
   <div>
     <ul>
-      <li><a routerLink="/">Mainpage</a></li>
+      <li><a routerLink="/main">Mainpage</a></li>
       <li><a routerLink="/page1">Books</a></li>
       <li><a routerLink="/page2">Author</a></li>
       <li><a routerLink="/page3">Genre</a></li>
@@ -14,14 +14,6 @@
     </ul>
   </div>
   
-
-<div>
-  <p>Click here to login:</p>
-    <button (click)="login()" mat-flat-button color="accent">
-      login
-    </button>
-</div>
+<router-outlet></router-outlet>
 
 </main>
-
-<router-outlet></router-outlet>
