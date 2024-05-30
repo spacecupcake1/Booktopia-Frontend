@@ -8,6 +8,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatButtonModule } from '@angular/material/button';
 import { HTTP_INTERCEPTORS, HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar'; 
+import {MatPaginator} from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -25,6 +27,8 @@ import { ChildComponent } from './components/child/child.component';
 import { LoginComponent } from './components/login/login.component';
 import { LoginpageComponent } from './pages/loginpage/loginpage.component';
 import { AuthortableComponent } from './pages/authortable/authortable.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthorformComponent } from './pages/authorform/authorform.component';
 
 
 export const authConfig: AuthConfig = {
@@ -60,19 +64,23 @@ export function storageFactory(): OAuthStorage {
     LoginComponent,
     LoginpageComponent,
     AuthortableComponent,
+    AuthorformComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     OAuthModule.forRoot({resourceServer: {sendAccessToken: true}}),
     AppRoutingModule,
     MatButtonModule,
     HttpClientModule,
     MatTableModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatPaginator,
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    MatIconModule,
     HttpClientXsrfModule.withOptions({
       cookieName: 'XSRF-TOKEN',
       headerName: 'X-XSRF-TOKEN'

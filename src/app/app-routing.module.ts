@@ -7,6 +7,7 @@ import { appCanActivate } from '../guard/app.auth.guard';
 import { AppRoles } from '../app.roles';
 import { LoginpageComponent } from './pages/loginpage/loginpage.component';
 import { AuthortableComponent } from './pages/authortable/authortable.component';
+import { AuthorformComponent } from './pages/authorform/authorform.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,9 @@ const routes: Routes = [
   },
   {
     path: 'authortable', component: AuthortableComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
+  },
+  {
+    path: 'authorform', component: AuthorformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
   },
   {
     path: 'page1', component: Page1Component, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
