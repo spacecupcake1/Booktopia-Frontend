@@ -1,0 +1,27 @@
+<main>
+  <div>
+  <h1>Booktopia</h1>
+  </div>
+
+  <div>
+    <ul>
+      <li><a routerLink="/">Mainpage</a></li>
+      <li><a routerLink="/page1">Books</a></li>
+      <li><a routerLink="/page2">Author</a></li>
+      <li><a routerLink="/page3">Genre</a></li>
+      <li><a href="#" (click)="logout()" (keyup.enter)="logout()" tabindex="0">Logout</a></li>
+
+    </ul>
+  </div>
+  
+
+<div>
+  <p>Click here to login:</p>
+    <button (click)="login()" mat-flat-button color="accent">
+      login
+    </button>
+</div>
+
+</main>
+
+<router-outlet></router-outlet>
