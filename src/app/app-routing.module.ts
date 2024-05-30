@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Page1Component } from './pages/page1/page1.component';
 import { appCanActivate } from '../guard/app.auth.guard';
 import { AppRoles } from '../app.roles';
 import { LoginpageComponent } from './pages/loginpage/loginpage.component';
@@ -10,10 +9,21 @@ import { AwardtableComponent } from './pages/awardtable/awardtable.component';
 import { AwardformComponent } from './pages/awardform/awardform.component';
 import { GenretableComponent } from './pages/genretable/genretable.component';
 import { GenreformComponent } from './pages/genreform/genreform.component';
+import { BooktableComponent } from './pages/booktable/booktable.component';
+import { BookformComponent } from './pages/bookform/bookform.component';
 
 const routes: Routes = [
   {
     path: '', component: LoginpageComponent
+  },
+  {
+    path: 'booktable', component: BooktableComponent
+  },
+  {
+    path: 'bookform', component: BookformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
+  },
+  {
+    path: 'bookform/:id', component: BookformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
   },
   {
     path: 'authortable', component: AuthortableComponent
@@ -41,9 +51,6 @@ const routes: Routes = [
   },
   {
     path: 'genreform/:id', component:  GenreformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
-  },
-  {
-    path: 'page1', component: Page1Component, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
   }
 ];
 

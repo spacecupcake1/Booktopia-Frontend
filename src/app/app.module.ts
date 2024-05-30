@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DatalistComponent } from './components/datalist/datalist.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatButtonModule } from '@angular/material/button';
 import { HTTP_INTERCEPTORS, HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
@@ -13,7 +12,6 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Page1Component } from './pages/page1/page1.component';
 import {AuthConfig, OAuthModule, OAuthStorage} from 'angular-oauth2-oidc';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { HttpXSRFInterceptor } from './interceptor/http.csrf.interceptor';
@@ -21,7 +19,6 @@ import {MatIconModule} from '@angular/material/icon';
 import { AppAuthService } from './service/app.auth.service';
 import { IsInRoleDirective } from './dir/is.in.role.dir';
 import { IsInRolesDirective } from './dir/is.in.roles.dir';
-import { ChildComponent } from './components/child/child.component';
 import { LoginComponent } from './components/login/login.component';
 import { LoginpageComponent } from './pages/loginpage/loginpage.component';
 import { AuthortableComponent } from './pages/authortable/authortable.component';
@@ -33,6 +30,8 @@ import { AwardtableComponent } from './pages/awardtable/awardtable.component';
 import { AwardformComponent } from './pages/awardform/awardform.component';
 import { GenretableComponent } from './pages/genretable/genretable.component';
 import { GenreformComponent } from './pages/genreform/genreform.component';
+import { BooktableComponent } from './pages/booktable/booktable.component';
+import { BookformComponent } from './pages/bookform/bookform.component';
 
 
 
@@ -59,11 +58,8 @@ export function storageFactory(): OAuthStorage {
 @NgModule({
   declarations: [
     AppComponent,
-    DatalistComponent,
-    Page1Component,
     IsInRoleDirective,
     IsInRolesDirective,
-    ChildComponent,
     LoginComponent,
     LoginpageComponent,
     AuthortableComponent,
@@ -72,6 +68,8 @@ export function storageFactory(): OAuthStorage {
     AwardformComponent,
     GenretableComponent,
     GenreformComponent,
+    BooktableComponent,
+    BookformComponent,
   ],
   imports: [
     BrowserModule,

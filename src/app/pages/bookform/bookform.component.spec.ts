@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChildComponent } from './child.component';
+import { BookformComponent } from './bookform.component';
 
-describe('ChildComponent', () => {
-  let component: ChildComponent;
-  let fixture: ComponentFixture<ChildComponent>;
+describe('BookformComponent', () => {
+  let component: BookformComponent;
+  let fixture: ComponentFixture<BookformComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ChildComponent]
+      declarations: [BookformComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ChildComponent);
+    fixture = TestBed.createComponent(BookformComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

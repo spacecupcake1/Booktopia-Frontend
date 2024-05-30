@@ -1,24 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DatalistComponent } from './datalist.component';
+import { BooktableComponent } from './booktable.component';
 
-describe('DatalistComponent', () => {
-  let component: DatalistComponent;
-  let fixture: ComponentFixture<DatalistComponent>;
+describe('BooktableComponent', () => {
+  let component: BooktableComponent;
+  let fixture: ComponentFixture<BooktableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DatalistComponent]
+      declarations: [BooktableComponent]
     })
     .compileComponents();
-  });
-
-  beforeEach(() => {  
-    fixture = TestBed.createComponent(DatalistComponent);
+    
+    fixture = TestBed.createComponent(BooktableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
 
   it('should create', () => {
     expect(component).toBeTruthy();
