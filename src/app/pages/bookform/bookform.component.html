@@ -1,1 +1,42 @@
-<p>bookform works!</p>
+<div>
+    <div>
+      <mat-toolbar>
+        <mat-toolbar-row>
+          <span class="toolbar-spacer"></span>
+          <button (click)="back()"  mat-raised-button color="primary">
+            <mat-icon>arrow_back_ios</mat-icon>
+            Go Back
+          </button>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </div>
+    <div class="app-form">
+      <form (ngSubmit)="save(bookForm.value)" [formGroup]="bookForm">
+  
+        <mat-form-field>
+          <mat-label>Firstname:</mat-label>
+          <input #inputFirstname appAutofocus formControlName="firstname" matInput maxlength="255" required>
+          <mat-hint align="end">{{inputFirstname.value.length || 0}}/255</mat-hint>
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>Lastname:</mat-label>
+          <input #inputLastname appAutofocus formControlName="lastname" matInput maxlength="255" required>
+          <mat-hint align="end">{{inputLastname.value.length || 0}}/255</mat-hint>
+        </mat-form-field>
+  
+        <mat-form-field>
+            <mat-label>Birthdate:</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="birthdate" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+  
+        <button [disabled]="!bookForm.valid" color="primary" mat-raised-button style="width: 200px">
+          Save
+        </button>
+  
+      </form>
+    </div>
+  </div>
+  
