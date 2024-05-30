@@ -14,7 +14,7 @@ const routes: Routes = [
     path: '', component: LoginpageComponent
   },
   {
-    path: 'authortable', component: AuthortableComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
+    path: 'authortable', component: AuthortableComponent
   },
   {
     path: 'authorform', component: AuthorformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}

@@ -20,8 +20,8 @@ export class AuthortableComponent implements OnInit, AfterViewInit {
 
   displayedColumns: string[] = ['id', 'firstname', 'lastname', 'birthdate', 'actions'];
 
-  async ngOnInit() {
-    await this.reloadData();
+  ngOnInit() {
+    this.reloadData();
   }
 
   ngAfterViewInit() {
@@ -48,7 +48,8 @@ export class AuthortableComponent implements OnInit, AfterViewInit {
 
         this.authorService.delete(e.id).subscribe({
           next: response => {
-            if (response.status === 200) {
+            console.log(response)
+            if (response.status === 204) {
               this.reloadData();
             } 
           }
