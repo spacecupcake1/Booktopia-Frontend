@@ -8,6 +8,8 @@ import { AuthortableComponent } from './pages/authortable/authortable.component'
 import { AuthorformComponent } from './pages/authorform/authorform.component';
 import { AwardtableComponent } from './pages/awardtable/awardtable.component';
 import { AwardformComponent } from './pages/awardform/awardform.component';
+import { GenretableComponent } from './pages/genretable/genretable.component';
+import { GenreformComponent } from './pages/genreform/genreform.component';
 
 const routes: Routes = [
   {
@@ -30,6 +32,15 @@ const routes: Routes = [
   },
   {
     path: 'awardform/:id', component: AwardformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
+  },
+  {
+    path: 'genretable', component: GenretableComponent
+  },
+  {
+    path: 'genreform', component:  GenreformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
+  },
+  {
+    path: 'genreform/:id', component:  GenreformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
   },
   {
     path: 'page1', component: Page1Component, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}

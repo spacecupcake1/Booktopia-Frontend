@@ -1,0 +1,30 @@
+<div>
+    <div>
+      <mat-toolbar>
+        <mat-toolbar-row>
+          <span class="toolbar-spacer"></span>
+          <button (click)="back()"  mat-raised-button color="primary">
+            <mat-icon>arrow_back_ios</mat-icon>
+            Go Back
+          </button>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </div>
+    <div class="app-form">
+      <form (ngSubmit)="save(genreForm.value)" [formGroup]="genreForm">
+  
+        <mat-form-field>
+          <mat-label>Name:</mat-label>
+          <input #inputName appAutofocus formControlName="name" matInput maxlength="255" required>
+          <mat-hint align="end">{{inputName.value.length || 0}}/255</mat-hint>
+        </mat-form-field>
+  
+  
+        <button [disabled]="!genreForm.valid" color="primary" mat-raised-button style="width: 200px">
+          Save
+        </button>
+  
+      </form>
+    </div>
+  </div>
+  

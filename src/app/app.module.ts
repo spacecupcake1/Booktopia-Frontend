@@ -31,6 +31,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { AwardtableComponent } from './pages/awardtable/awardtable.component';
 import { AwardformComponent } from './pages/awardform/awardform.component';
+import { GenretableComponent } from './pages/genretable/genretable.component';
+import { GenreformComponent } from './pages/genreform/genreform.component';
 
 
 
@@ -68,6 +70,8 @@ export function storageFactory(): OAuthStorage {
     AuthorformComponent,
     AwardtableComponent,
     AwardformComponent,
+    GenretableComponent,
+    GenreformComponent,
   ],
   imports: [
     BrowserModule,
