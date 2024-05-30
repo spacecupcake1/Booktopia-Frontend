@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MainpageComponent } from './mainpage.component';
+import { AuthortableComponent } from './authortable.component';
 
-describe('MainpageComponent', () => {
-  let component: MainpageComponent;
-  let fixture: ComponentFixture<MainpageComponent>;
+describe('AuthortableComponent', () => {
+  let component: AuthortableComponent;
+  let fixture: ComponentFixture<AuthortableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MainpageComponent]
+      declarations: [AuthortableComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(MainpageComponent);
+    fixture = TestBed.createComponent(AuthortableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

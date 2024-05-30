@@ -5,15 +5,15 @@ import { Page2Component } from './pages/page2/page2.component';
 import { Page3Component } from './pages/page3/page3.component';
 import { appCanActivate } from '../guard/app.auth.guard';
 import { AppRoles } from '../app.roles';
-import { MainpageComponent } from './pages/mainpage/mainpage.component';
 import { LoginpageComponent } from './pages/loginpage/loginpage.component';
+import { AuthortableComponent } from './pages/authortable/authortable.component';
 
 const routes: Routes = [
   {
     path: '', component: LoginpageComponent
   },
   {
-    path: 'main', component: MainpageComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
+    path: 'authortable', component: AuthortableComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
   },
   {
     path: 'page1', component: Page1Component, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}

@@ -23,8 +23,8 @@ import { IsInRoleDirective } from './dir/is.in.role.dir';
 import { IsInRolesDirective } from './dir/is.in.roles.dir';
 import { ChildComponent } from './components/child/child.component';
 import { LoginComponent } from './components/login/login.component';
-import { MainpageComponent } from './pages/mainpage/mainpage.component';
 import { LoginpageComponent } from './pages/loginpage/loginpage.component';
+import { AuthortableComponent } from './pages/authortable/authortable.component';
 
 
 export const authConfig: AuthConfig = {
@@ -58,8 +58,8 @@ export function storageFactory(): OAuthStorage {
     IsInRolesDirective,
     ChildComponent,
     LoginComponent,
-    MainpageComponent,
     LoginpageComponent,
+    AuthortableComponent,
   ],
   imports: [
     BrowserModule,
