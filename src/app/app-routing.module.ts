@@ -20,6 +20,9 @@ const routes: Routes = [
     path: 'authorform', component: AuthorformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
   },
   {
+    path: 'authorform/:id', component: AuthorformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
+  },
+  {
     path: 'page1', component: Page1Component, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
   },
   {

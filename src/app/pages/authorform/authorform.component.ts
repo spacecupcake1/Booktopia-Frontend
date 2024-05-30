@@ -2,59 +2,71 @@ import { Component, OnInit } from '@angular/core';
 import { Author } from '../../data/author';
 import { AuthorService } from '../../service/author.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-authorform',
   templateUrl: './authorform.component.html',
   styleUrl: './authorform.component.css'
 })
-export class AuthorformComponent implements OnInit{
+export class AuthorformComponent implements OnInit {
 
   author = new Author();
-  public authorForm = new UntypedFormGroup({
-    firstname: new UntypedFormControl(''),
-    lastname: new UntypedFormControl(''),
-    birthdate: new UntypedFormControl(0),
-  });
+  public authorForm: FormGroup;
 
-  constructor(private authorService: AuthorService, private formBuilder: UntypedFormBuilder, private router: Router, private route: ActivatedRoute,) {
-   }
+  constructor(
+    private authorService: AuthorService,
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
+    this.authorForm = this.formBuilder.group({
+      firstname: new FormControl(''),
+      lastname: new FormControl(''),
+      birthdate: new FormControl(''),
+    });
+  }
 
   ngOnInit(): void {
-    if (this.route.snapshot.paramMap.get('id') !== null) {
-      const id = Number.parseInt(this.route.snapshot.paramMap.get('id') as string);
-
-      this.authorService.getOne(id).subscribe(authors => {
-        this.author = authors;
-        this.authorForm = this.formBuilder.group(authors);
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id !== null) {
+      this.authorService.getOne(+id).subscribe(author => {
+        this.author = author;
+        this.authorForm.patchValue(author);
+      }, error => {
+        console.error('Error fetching author', error);
       });
     } else {
-      this.authorForm = this.formBuilder.group(this.author);
+      this.authorForm.patchValue(this.author);
     }
   }
 
   async back() {
-    await this.router.navigate(['author']);
+    await this.router.navigate(['authortable']);
   }
 
   async save(formData: any) {
-    this.author = Object.assign(formData);
+    this.author = Object.assign(this.author, formData);
 
     if (this.author.id) {
       this.authorService.update(this.author).subscribe({
         next: () => {
           this.back();
+        },
+        error: (err) => {
+          console.error('Error updating author', err);
         }
       });
     } else {
       this.authorService.save(this.author).subscribe({
         next: () => {
           this.back();
+        },
+        error: (err) => {
+          console.error('Error saving author', err);
         }
       });
     }
   }
-
 
 }

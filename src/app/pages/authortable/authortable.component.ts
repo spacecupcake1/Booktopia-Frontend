@@ -37,11 +37,11 @@ export class AuthortableComponent implements OnInit, AfterViewInit {
   }
 
   async edit(e: Author) {
-    await this.router.navigate(['author', e.id]);
+    await this.router.navigate(['authorform', e.id]);
   }
 
   async add() {
-    await this.router.navigate(['author']);
+    await this.router.navigate(['authorform']);
   }
 
   delete(e: Author) {

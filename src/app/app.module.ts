@@ -29,6 +29,9 @@ import { LoginpageComponent } from './pages/loginpage/loginpage.component';
 import { AuthortableComponent } from './pages/authortable/authortable.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthorformComponent } from './pages/authorform/authorform.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 
 export const authConfig: AuthConfig = {
@@ -79,6 +82,8 @@ export function storageFactory(): OAuthStorage {
     MatPaginator,
     MatInputModule,
     MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientXsrfModule.withOptions({
