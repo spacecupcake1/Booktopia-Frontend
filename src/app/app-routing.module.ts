@@ -26,7 +26,7 @@ const routes: Routes = [
     path: 'awardtable', component: AwardtableComponent
   },
   {
-    path: 'auwardform', component: AwardformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
+    path: 'awardform', component: AwardformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
   },
   {
     path: 'awardform/:id', component: AwardformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}

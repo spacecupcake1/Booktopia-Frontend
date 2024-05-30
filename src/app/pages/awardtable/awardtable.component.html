@@ -1,1 +1,52 @@
-<p>awardtable works!</p>
+<div>
+    <div>
+      <mat-toolbar *appIsInRole="'admin'">
+        <span>
+          <button (click)="add()" *appIsInRole="'admin'" color="primary"  mat-raised-button>
+            <mat-icon>add</mat-icon>
+            Add new Award
+          </button>
+        </span>
+      </mat-toolbar>
+    </div>
+    <table  mat-table [dataSource]="awarddata" class="mat-elevation-z8 award-table">
+
+    <ng-container matColumnDef="actions">
+        <th *matHeaderCellDef class="w-75 th-center" mat-header-cell></th>
+        <td *matCellDef="let element" mat-cell style="text-align: end">
+            <button (click)="edit(element)" *appIsInRole="'admin'" color="primary" mat-button>
+            <mat-icon>edit</mat-icon>
+            </button>
+            <button (click)="delete(element)" *appIsInRole="'admin'" color="warn" mat-button>
+            <mat-icon>delete</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="year">
+        <th mat-header-cell *matHeaderCellDef> Year </th>
+        <td mat-cell *matCellDef="let element"> {{element.year}} </td>
+      </ng-container>
+    
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+    
+    <mat-paginator [pageSizeOptions]="[5, 10]" [pageSize]="10"
+                   showFirstLastButtons>
+    </mat-paginator>
+  </div>
+  
+  
