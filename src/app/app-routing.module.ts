@@ -20,37 +20,37 @@ const routes: Routes = [
     path: 'booktable', component: BooktableComponent
   },
   {
-    path: 'bookform', component: BookformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
+    path: 'bookform', component: BookformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Read]}
   },
   {
-    path: 'bookform/:id', component: BookformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
+    path: 'bookform/:id', component: BookformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Read]}
   },
   {
     path: 'authortable', component: AuthortableComponent
   },
   {
-    path: 'authorform', component: AuthorformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
+    path: 'authorform', component: AuthorformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Read]}
   },
   {
-    path: 'authorform/:id', component: AuthorformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
+    path: 'authorform/:id', component: AuthorformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Read]}
   },
   {
     path: 'awardtable', component: AwardtableComponent
   },
   {
-    path: 'awardform', component: AwardformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
+    path: 'awardform', component: AwardformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Read]}
   },
   {
-    path: 'awardform/:id', component: AwardformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
+    path: 'awardform/:id', component: AwardformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Read]}
   },
   {
     path: 'genretable', component: GenretableComponent
   },
   {
-    path: 'genreform', component:  GenreformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
+    path: 'genreform', component:  GenreformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Read]}
   },
   {
-    path: 'genreform/:id', component:  GenreformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Admin]}
+    path: 'genreform/:id', component:  GenreformComponent, pathMatch: 'full', canActivate: [appCanActivate], data: {roles: [AppRoles.Read]}
   }
 ];
 
