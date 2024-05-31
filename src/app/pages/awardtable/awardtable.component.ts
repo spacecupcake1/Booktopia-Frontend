@@ -15,13 +15,12 @@ export class AwardtableComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator?: MatPaginator;
 
   constructor(private awardService: AwardService, private router: Router) {
-    this.reloadData();
    }
 
   displayedColumns: string[] = ['id', 'name', 'year', 'actions'];
 
-  ngOnInit() {
-    this.reloadData();
+  async ngOnInit() {
+    await this.reloadData();
   }
 
   ngAfterViewInit() {
@@ -31,7 +30,7 @@ export class AwardtableComponent implements OnInit, AfterViewInit {
   }
 
   reloadData() {
-    this.awardService.getList().subscribe((awards) => {
+    this.awardService.getList().subscribe(awards => {
       this.awarddata.data = awards;
     });
   }

@@ -45,7 +45,6 @@ export class AuthortableComponent implements OnInit, AfterViewInit {
   }
 
   delete(e: Author) {
-
         this.authorService.delete(e.id).subscribe({
           next: response => {
             console.log(response)
