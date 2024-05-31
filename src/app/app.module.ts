@@ -32,6 +32,7 @@ import { GenretableComponent } from './pages/genretable/genretable.component';
 import { GenreformComponent } from './pages/genreform/genreform.component';
 import { BooktableComponent } from './pages/booktable/booktable.component';
 import { BookformComponent } from './pages/bookform/bookform.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -83,6 +84,7 @@ export function storageFactory(): OAuthStorage {
     MatIconModule,
     MatPaginator,
     MatInputModule,
+    MatSelectModule,
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,

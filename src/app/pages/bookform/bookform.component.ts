@@ -1,8 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, UntypedFormControl} from '@angular/forms';
 import { Book } from '../../data/book';
 import { BookService } from '../../service/book.service';
+import { Author } from '../../data/author';
+import { AuthorService } from '../../service/author.service';
+import { Award } from '../../data/award';
+import { Genre } from '../../data/genre';
+import { AwardService } from '../../service/award.service';
+import { GenreService } from '../../service/genre.service';
 
 @Component({
   selector: 'app-bookform',
@@ -12,50 +18,58 @@ import { BookService } from '../../service/book.service';
 export class BookformComponent implements OnInit {
 
   book = new Book();
-  bookForm!: FormGroup;
+  authors: Author[] = [];
+  awards: Award[] = [];
+  genres: Genre[] = [];
+  public bookForm: FormGroup;
 
   constructor(
     private bookService: BookService,
+    private authorService: AuthorService,
+    private awardService: AwardService,
+    private genreService:  GenreService,
     private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute
-  ) { }
-
-  ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.bookService.getOne(+id).subscribe(
-        book => {
-          this.book = book;
-          this.initForm();
-        },
-        error => console.error('Error fetching book', error)
-      );
-    } else {
-      this.initForm();
-    }
+  ) {
+    this.bookForm = this.formBuilder.group({
+      name: new UntypedFormControl(''),
+      series: new UntypedFormControl(''),
+      page: new UntypedFormControl(0),
+      releaseDate: new UntypedFormControl(''),
+      description: new UntypedFormControl(''),
+      authorId: new UntypedFormControl(''),
+      awardId: new UntypedFormControl(''),
+      genreId: new UntypedFormControl('')
+    });
   }
 
-  initForm(): void {
-    this.bookForm = this.formBuilder.group({
-      name: new FormControl(this.book.name),
-      series: new FormControl(this.book.series),
-      page: new FormControl(this.book.page),
-      releaseDate: new FormControl(this.book.releaseDate),
-      description: new FormControl(this.book.description),
-      author: this.formBuilder.group({
-        firstName: new FormControl(this.book.author.firstname),
-        lastName: new FormControl(this.book.author.lastname),
-        birthdate: new FormControl(this.book.author.birthdate),
-      }),
-      award: this.formBuilder.group({
-        name: new FormControl(this.book.award.name),
-        year: new FormControl(this.book.award.year)
-      }),
-      genre: this.formBuilder.group({
-        name: new FormControl(this.book.genre.name)
-      })
+  ngOnInit(): void {
+
+    this.authorService.getList().subscribe(obj => {
+      this.authors = obj;
     });
+    this.awardService.getList().subscribe(obj => {
+      this.awards = obj;
+    });
+    this.genreService.getList().subscribe(obj => {
+      this.genres = obj;
+    });
+
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id !== null) {
+      this.bookService.getOne(+id).subscribe(book => {
+        this.book = book;
+        //this.bookForm.patchValue(book);
+        this.bookForm = this.formBuilder.group(book);
+        this.bookForm.addControl('authorId', new UntypedFormControl(book.author.id));
+      }, error => {
+        console.error('Error fetching book', error);
+      });
+    } else {
+      //this.bookForm.patchValue(this.book);
+      //this.bookForm.addControl('authorId', new UntypedFormControl(this.book.author.id));
+    }
   }
 
   async back() {
@@ -63,7 +77,7 @@ export class BookformComponent implements OnInit {
   }
 
   async save(formData: any) {
-    this.book = Object.assign(this.book, formData);
+    this.book = Object.assign(formData);
 
     if (this.book.id) {
       this.bookService.update(this.book).subscribe({

@@ -18,7 +18,7 @@ export class BooktableComponent implements OnInit, AfterViewInit {
     this.reloadData();
    }
 
-  displayedColumns: string[] = ['id', 'name', 'author', 'series', 'page', 'releaseDate', 'author', 'award', 'actions'];
+  displayedColumns: string[] = ['id', 'name', 'author', 'series', 'page', 'releaseDate', 'award', 'actions'];
 
   ngOnInit() {
     this.reloadData();
