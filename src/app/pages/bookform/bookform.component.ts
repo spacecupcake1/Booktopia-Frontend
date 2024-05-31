@@ -40,7 +40,7 @@ export class BookformComponent implements OnInit {
       description: new UntypedFormControl(''),
       authorId: new UntypedFormControl(''),
       awardId: new UntypedFormControl(''),
-      genreId: new UntypedFormControl('')
+      genreId: new UntypedFormControl(''),
     });
   }
 
@@ -63,6 +63,8 @@ export class BookformComponent implements OnInit {
         //this.bookForm.patchValue(book);
         this.bookForm = this.formBuilder.group(book);
         this.bookForm.addControl('authorId', new UntypedFormControl(book.author.id));
+        this.bookForm.addControl('awardId', new UntypedFormControl(book.award.id));
+        this.bookForm.addControl('genreId', new UntypedFormControl(book.genre.id));
       }, error => {
         console.error('Error fetching book', error);
       });
