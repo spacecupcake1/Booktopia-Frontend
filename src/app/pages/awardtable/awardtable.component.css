@@ -2,3 +2,7 @@ button{
     font-size: 20px;
     text-align: center;
 }
+
+mat-toolbar {
+    background-color: black;
+  }

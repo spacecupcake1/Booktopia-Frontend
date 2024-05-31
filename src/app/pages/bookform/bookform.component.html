@@ -10,27 +10,84 @@
         </mat-toolbar-row>
       </mat-toolbar>
     </div>
+    <h2>Add a New Book</h2>
     <div class="app-form">
       <form (ngSubmit)="save(bookForm.value)" [formGroup]="bookForm">
   
         <mat-form-field>
-          <mat-label>Firstname:</mat-label>
-          <input #inputFirstname appAutofocus formControlName="firstname" matInput maxlength="255" required>
-          <mat-hint align="end">{{inputFirstname.value.length || 0}}/255</mat-hint>
+          <mat-label>Name:</mat-label>
+          <input #inputName appAutofocus formControlName="name" matInput maxlength="255" required>
+          <mat-hint align="end">{{inputName.value.length || 0}}/255</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Series:</mat-label>
+          <input #inputSeries appAutofocus formControlName="series" matInput maxlength="255" required>
+          <mat-hint align="end">{{inputSeries.value.length || 0}}/255</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Page:</mat-label>
+            <input #inputPage appAutofocus formControlName="page" matInput maxlength="1000" required>
+            <mat-hint align="end">{{inputPage.value.length || 0}}/1000</mat-hint>
         </mat-form-field>
   
         <mat-form-field>
-          <mat-label>Lastname:</mat-label>
-          <input #inputLastname appAutofocus formControlName="lastname" matInput maxlength="255" required>
-          <mat-hint align="end">{{inputLastname.value.length || 0}}/255</mat-hint>
+            <mat-label>Release Date:</mat-label>
+            <input matInput [matDatepicker]="releasepicker" formControlName="releaseDate" required>
+            <mat-datepicker-toggle matSuffix [for]="releasepicker"></mat-datepicker-toggle>
+            <mat-datepicker #releasepicker></mat-datepicker>
         </mat-form-field>
-  
+
         <mat-form-field>
-            <mat-label>Birthdate:</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="birthdate" required>
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <mat-label>Description:</mat-label>
+            <input #inputDescription appAutofocus formControlName="description" matInput maxlength="5000" required>
+            <mat-hint align="end">{{inputDescription.value.length || 0}}/5000</mat-hint>
+        </mat-form-field>
+
+        <div formGroupName="author">
+          <mat-form-field>
+            <mat-label>Author First Name:</mat-label>
+            <input #inputAuthorFirstName appAutofocus formControlName="firstname" matInput maxlength="255" required>
+            <mat-hint align="end">{{inputAuthorFirstName.value.length || 0}}/255</mat-hint>
           </mat-form-field>
+    
+          <mat-form-field>
+            <mat-label>Author Last Name:</mat-label>
+            <input #inputAuthorLastName appAutofocus formControlName="lastname" matInput maxlength="255" required>
+            <mat-hint align="end">{{inputAuthorFirstName.value.length || 0}}/255</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Author Birthdate:</mat-label>
+            <input matInput [matDatepicker]="birthpicker" formControlName="birthdate" required>
+            <mat-datepicker-toggle matSuffix [for]="birthpicker"></mat-datepicker-toggle>
+            <mat-datepicker #birthpicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div formGroupName="award">
+          <mat-form-field>
+            <mat-label>Award Name:</mat-label>
+            <input #inputAwardName appAutofocus formControlName="name" matInput maxlength="255" required>
+            <mat-hint align="end">{{inputAwardName.value.length || 0}}/255</mat-hint>
+          </mat-form-field>
+    
+          <mat-form-field>
+            <mat-label>Year:</mat-label>
+            <input #inputAwardYear appAutofocus formControlName="year" matInput maxlength="4" required>
+            <mat-hint align="end">{{inputAwardYear.value.length || 0}}/4</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div formGroupName="genre">
+          <mat-form-field>
+            <mat-label>Genre Name:</mat-label>
+            <input #inputGenreName appAutofocus formControlName="name" matInput maxlength="255" required>
+            <mat-hint align="end">{{inputGenreName.value.length || 0}}/255</mat-hint>
+          </mat-form-field>
+    
+        </div>
   
         <button [disabled]="!bookForm.valid" color="primary" mat-raised-button style="width: 200px">
           Save

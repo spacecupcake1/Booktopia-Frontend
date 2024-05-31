@@ -3,11 +3,16 @@ mat-form-field {
   }
 
 mat-toolbar {
-  background-color: black;
-}
+    background-color: black;
+  }
 
 button{
   font-size: 20px;
 }
 
+h2{
+  font-size: 40px;
+  text-align: center;
+  text-decoration: underline;
+}
   

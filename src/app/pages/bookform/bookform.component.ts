@@ -12,33 +12,50 @@ import { BookService } from '../../service/book.service';
 export class BookformComponent implements OnInit {
 
   book = new Book();
-  public bookForm: FormGroup;
+  bookForm!: FormGroup;
 
   constructor(
     private bookService: BookService,
     private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute
-  ) {
-    this.bookForm = this.formBuilder.group({
-      firstname: new FormControl(''),
-      lastname: new FormControl(''),
-      birthdate: new FormControl(''),
-    });
-  }
+  ) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if (id !== null) {
-      this.bookService.getOne(+id).subscribe(book => {
-        this.book = book;
-        this.bookForm.patchValue(book);
-      }, error => {
-        console.error('Error fetching book', error);
-      });
+    if (id) {
+      this.bookService.getOne(+id).subscribe(
+        book => {
+          this.book = book;
+          this.initForm();
+        },
+        error => console.error('Error fetching book', error)
+      );
     } else {
-      this.bookForm.patchValue(this.book);
+      this.initForm();
     }
+  }
+
+  initForm(): void {
+    this.bookForm = this.formBuilder.group({
+      name: new FormControl(this.book.name),
+      series: new FormControl(this.book.series),
+      page: new FormControl(this.book.page),
+      releaseDate: new FormControl(this.book.releaseDate),
+      description: new FormControl(this.book.description),
+      author: this.formBuilder.group({
+        firstName: new FormControl(this.book.author.firstname),
+        lastName: new FormControl(this.book.author.lastname),
+        birthdate: new FormControl(this.book.author.birthdate),
+      }),
+      award: this.formBuilder.group({
+        name: new FormControl(this.book.award.name),
+        year: new FormControl(this.book.award.year)
+      }),
+      genre: this.formBuilder.group({
+        name: new FormControl(this.book.genre.name)
+      })
+    });
   }
 
   async back() {
